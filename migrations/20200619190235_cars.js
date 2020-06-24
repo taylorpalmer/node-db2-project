@@ -6,7 +6,7 @@ exports.up = async function (knex) {
     tbl.string("VIN", 255).notNull().unique();
     tbl.string("make", 255).notNull();
     tbl.string("model", 255).notNull();
-    tbl.real("milage", 255).notNull();
+    tbl.real("mileage", 255).notNull();
   });
 };
 

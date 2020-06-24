@@ -24,7 +24,15 @@ router.get("/:VIN", async (req, res, next) => {
 
 router.post("/", async (req, res, next) => {
   try {
+    const carsData = req.body;
+
+    const [id] = await db("cars").insert(carsData);
+    const newCar = await db("cars").where({ id });
+
+    res.status(201).json(newCar);
   } catch (err) {
     next(err);
   }
 });
+
+module.exports = router;
